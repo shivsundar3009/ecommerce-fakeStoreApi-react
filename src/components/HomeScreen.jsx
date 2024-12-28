@@ -6,11 +6,9 @@ function HomeScreen() {
   return (
     <>
       <div className="flex flex-col">
-        <Navbar />
 
         <Products />
 
-        <Footer />
       </div>
     </>
   );

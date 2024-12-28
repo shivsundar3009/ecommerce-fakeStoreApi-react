@@ -27,17 +27,17 @@ export const CartContextProvider = ({children}) => {
     }
     
     const updateQuantity = (productId, change) => {
-
-        setCartItems(
-            prevItem => {
-                prevItem
-                .map(item => item.productId === productId ? {...item , quantity: item.quantity + change} : item)
-                .filter(item => item.quantity >0)
-            }
-        )
-
-        
-    }
+        setCartItems((prevItems) => 
+            prevItems
+                .map((item) => 
+                    item.productId === productId 
+                        ? { ...item, quantity: item.quantity + change } 
+                        : item
+                )
+                .filter((item) => item.quantity > 0) // Remove items with quantity <= 0
+        );
+    };
+    
 
     const removeItemFromCart = (productId) => {
 
@@ -45,7 +45,7 @@ export const CartContextProvider = ({children}) => {
 
     }
 
-    const clearCart = (productId) => {
+    const clearCart = () => {
         setCartItems([])
     }
 

@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+
+    
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const { cartItems, updateQuantity, removeItemFromCart, clearCart } = useCart();
     const allProducts = useSelector((state) => state.products.allProducts);
